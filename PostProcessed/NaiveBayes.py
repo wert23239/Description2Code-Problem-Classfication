@@ -3,6 +3,7 @@ import math
 import sys
 from collections import defaultdict 
 from fractions import Fraction
+import numpy as np
 
 
 
@@ -23,8 +24,8 @@ def gather_data(file_path):
     word_count = 0
     for textfile in txt:
         count += 1
-        if not Fold[0]<=count or not Fold[1]>=count:
-            word_count = GatherWordCount(textfile, word_dict, word_count)
+        # if not Fold[0]<=count or not Fold[1]>=count:
+        word_count = GatherWordCount(textfile, word_dict, word_count)
     return word_dict, word_count
 
 def GatherWordCount(textfile, wordDict, wordCount):
@@ -39,23 +40,20 @@ def GatherWordCount(textfile, wordDict, wordCount):
     f.close()
     return wordCount
 
-def TestData(FilePath, PostiveTable, PostiveCount, NegativeTable, NegativeCount):
-    positive_class = 0
-    negative_class = 0
-    f = open(FilePath, 'r')
-
-    for line in f:
-        words = line.split()
-        for i in words: #go through all words and add to hashtable of current word
-            positive_class += math.log(calculate_probabilty(PostiveTable, i, PostiveCount))
-            negative_class += math.log(calculate_probabilty(NegativeTable, i, NegativeCount))
-    f.close()
+def TestData(line, PostiveTable, PostiveCount, NegativeTable, NegativeCount):
+    positive_class = 0.5
+    negative_class = 0.5
+    words = line.split()
+    for i in words: #go through all words and add to hashtable of current word
+        positive_class += calculate_probabilty(PostiveTable, i, PostiveCount)
+        negative_class += calculate_probabilty(NegativeTable, i, NegativeCount)
     #positive_class+= math.log(float(PostiveCount)/(float(PostiveCount)+float(NegativeCount)))
     #negative_class+= math.log(float(NegativeCount)/(float(PostiveCount)+float(NegativeCount)))
-    if positive_class > negative_class:
-        return "POSITIVE"
-    else:
-        return "NEGATIVE"
+    total=np.exp(positive_class)+np.exp(negative_class)
+    pos_percent = np.exp(positive_class)/total
+    neg_percent= np.exp(negative_class)/total
+   #return [positive_class,negative_class]
+    return [pos_percent,neg_percent]
 
 def calculate_probabilty(wordTable, Word, TableCount):
     classifier = 0
@@ -96,24 +94,38 @@ negative_table,negative_count,label,Fold):
                 correct += 1   
     return correct
 
-Fold=()
-#print(sys.argv[1],sys.argv[2])
-if sys.argv[1]!="fold1" and sys.argv[2]!="fold1":
-	Fold=(0,232)
-elif sys.argv[1]!="fold2" and sys.argv[2]!="fold2":
-	Fold=(233,465)
-else:
-	Fold=(466,698)	
+# Fold=()
+# #print(sys.argv[1],sys.argv[2])
+# if sys.argv[1]!="fold1" and sys.argv[2]!="fold1":
+# 	Fold=(0,232)
+# elif sys.argv[1]!="fold2" and sys.argv[2]!="fold2":
+# 	Fold=(233,465)
+# else:
+# 	Fold=(466,698)	
 	
 #print(Fold)	
 
-PATHPOS = "/user/cse842/SentimentData/tokens/pos/*.txt"
-PATHNEG = "/user/cse842/SentimentData/tokens/neg/*.txt"
+PATHPOS = "train-pos.txt"
+PATHNEG = "train-neg.txt"
 WORD_DICT_POSITIVE, POSITIVECOUNT = gather_data(PATHPOS)
 WORD_DICT_NEGATIVE, NegativeCount = gather_data(PATHNEG)
 #print(POSITIVECOUNT)
 #print(NegativeCount)
 export_dict(POSITIVECOUNT, WORD_DICT_POSITIVE, "Postive.txt")
 export_dict(NegativeCount, WORD_DICT_NEGATIVE, "Negative.txt")
+results=[]
+testpos = "test-pos.txt"
+f = open(testpos, 'r')
+for line in f:
+    results.append(TestData(line, WORD_DICT_POSITIVE, POSITIVECOUNT,WORD_DICT_NEGATIVE,NegativeCount))
+f.close()
+testneg = "test-neg.txt"
+f = open(testpos, 'r')
+for line in f:
+    results.append(TestData(line, WORD_DICT_POSITIVE, POSITIVECOUNT,WORD_DICT_NEGATIVE,NegativeCount))
+f.close()
+print(results)
+
+
 
 
