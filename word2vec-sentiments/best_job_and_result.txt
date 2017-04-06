@@ -1,0 +1,13 @@
+Best result: 0.351064
+Job-id: 20004
+Parameters: 
+name: "size"
+int_val: 200
+name: "min_count"
+int_val: 1
+name: "window"
+int_val: 20
+name: "negative"
+int_val: 10
+name: "epoch_size"
+int_val: 10

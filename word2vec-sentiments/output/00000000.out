@@ -1,0 +1,145 @@
+Running in wrapper mode for '0'
+
+Running python job.
+
+2017-04-04 23:05:08,655 : INFO : running /mnt/c/Source/spearmint/spearmint/bin/../spearmint/main.py ../examples/word2vec-sentiments/config.pb --driver=local --method=GPEIOptChooser --method-args=noiseless=0
+2017-04-04 23:05:08,655 : WARNING : consider setting layer size to a multiple of 4 for greater performance
+2017-04-04 23:05:08,665 : INFO : collecting all words and their counts
+2017-04-04 23:05:08,665 : INFO : PROGRESS: at example #0, processed 0 words (0/s), 0 word types, 0 tags
+2017-04-04 23:05:08,674 : INFO : collected 5644 word types and 591 unique tags from a corpus of 591 examples and 53128 words
+2017-04-04 23:05:08,674 : INFO : Loading a fresh vocabulary
+2017-04-04 23:05:08,711 : INFO : min_count=1 retains 5644 unique words (100% of original 5644, drops 0)
+2017-04-04 23:05:08,711 : INFO : min_count=1 leaves 53128 word corpus (100% of original 53128, drops 0)
+2017-04-04 23:05:08,726 : INFO : deleting the raw counts dictionary of 5644 items
+2017-04-04 23:05:08,726 : INFO : sample=0.0001 downsamples 528 most-common words
+2017-04-04 23:05:08,726 : INFO : downsampling leaves estimated 25852 word corpus (48.7% of prior 53128)
+2017-04-04 23:05:08,726 : INFO : estimated required memory for 5644 words and 30 dimensions: 4365680 bytes
+2017-04-04 23:05:08,733 : INFO : resetting layer weights
+2017-04-04 23:05:08,782 : INFO : Epoch 0
+2017-04-04 23:05:08,783 : INFO : training model with 7 workers on 5644 vocabulary and 30 features, using sg=0 hs=0 sample=0.0001 negative=5 window=5
+2017-04-04 23:05:08,783 : INFO : expecting 591 sentences, matching count from corpus used for vocabulary survey
+2017-04-04 23:05:08,916 : INFO : worker thread finished; awaiting finish of 6 more threads
+2017-04-04 23:05:08,930 : INFO : worker thread finished; awaiting finish of 5 more threads
+2017-04-04 23:05:08,931 : INFO : worker thread finished; awaiting finish of 4 more threads
+2017-04-04 23:05:08,932 : INFO : worker thread finished; awaiting finish of 3 more threads
+2017-04-04 23:05:08,934 : INFO : worker thread finished; awaiting finish of 2 more threads
+2017-04-04 23:05:08,934 : INFO : worker thread finished; awaiting finish of 1 more threads
+2017-04-04 23:05:08,934 : INFO : worker thread finished; awaiting finish of 0 more threads
+2017-04-04 23:05:08,934 : INFO : training on 265640 raw words (132272 effective words) took 0.1s, 995460 effective words/s
+2017-04-04 23:05:08,935 : WARNING : under 10 jobs per worker: consider setting a smaller `batch_words' for smoother alpha decay
+2017-04-04 23:05:08,935 : INFO : Epoch 1
+2017-04-04 23:05:08,935 : INFO : training model with 7 workers on 5644 vocabulary and 30 features, using sg=0 hs=0 sample=0.0001 negative=5 window=5
+2017-04-04 23:05:08,935 : INFO : expecting 591 sentences, matching count from corpus used for vocabulary survey
+2017-04-04 23:05:09,038 : INFO : worker thread finished; awaiting finish of 6 more threads
+2017-04-04 23:05:09,050 : INFO : worker thread finished; awaiting finish of 5 more threads
+2017-04-04 23:05:09,052 : INFO : worker thread finished; awaiting finish of 4 more threads
+2017-04-04 23:05:09,052 : INFO : worker thread finished; awaiting finish of 3 more threads
+2017-04-04 23:05:09,055 : INFO : worker thread finished; awaiting finish of 2 more threads
+2017-04-04 23:05:09,055 : INFO : worker thread finished; awaiting finish of 1 more threads
+2017-04-04 23:05:09,056 : INFO : worker thread finished; awaiting finish of 0 more threads
+2017-04-04 23:05:09,056 : INFO : training on 265640 raw words (132403 effective words) took 0.1s, 1100094 effective words/s
+2017-04-04 23:05:09,056 : WARNING : under 10 jobs per worker: consider setting a smaller `batch_words' for smoother alpha decay
+2017-04-04 23:05:09,057 : INFO : Epoch 2
+2017-04-04 23:05:09,057 : INFO : training model with 7 workers on 5644 vocabulary and 30 features, using sg=0 hs=0 sample=0.0001 negative=5 window=5
+2017-04-04 23:05:09,057 : INFO : expecting 591 sentences, matching count from corpus used for vocabulary survey
+2017-04-04 23:05:09,158 : INFO : worker thread finished; awaiting finish of 6 more threads
+2017-04-04 23:05:09,172 : INFO : worker thread finished; awaiting finish of 5 more threads
+2017-04-04 23:05:09,176 : INFO : worker thread finished; awaiting finish of 4 more threads
+2017-04-04 23:05:09,177 : INFO : worker thread finished; awaiting finish of 3 more threads
+2017-04-04 23:05:09,177 : INFO : worker thread finished; awaiting finish of 2 more threads
+2017-04-04 23:05:09,177 : INFO : worker thread finished; awaiting finish of 1 more threads
+2017-04-04 23:05:09,177 : INFO : worker thread finished; awaiting finish of 0 more threads
+2017-04-04 23:05:09,177 : INFO : training on 265640 raw words (132245 effective words) took 0.1s, 1116481 effective words/s
+2017-04-04 23:05:09,177 : WARNING : under 10 jobs per worker: consider setting a smaller `batch_words' for smoother alpha decay
+2017-04-04 23:05:09,177 : INFO : Epoch 3
+2017-04-04 23:05:09,178 : INFO : training model with 7 workers on 5644 vocabulary and 30 features, using sg=0 hs=0 sample=0.0001 negative=5 window=5
+2017-04-04 23:05:09,178 : INFO : expecting 591 sentences, matching count from corpus used for vocabulary survey
+2017-04-04 23:05:09,277 : INFO : worker thread finished; awaiting finish of 6 more threads
+2017-04-04 23:05:09,290 : INFO : worker thread finished; awaiting finish of 5 more threads
+2017-04-04 23:05:09,292 : INFO : worker thread finished; awaiting finish of 4 more threads
+2017-04-04 23:05:09,293 : INFO : worker thread finished; awaiting finish of 3 more threads
+2017-04-04 23:05:09,294 : INFO : worker thread finished; awaiting finish of 2 more threads
+2017-04-04 23:05:09,294 : INFO : worker thread finished; awaiting finish of 1 more threads
+2017-04-04 23:05:09,295 : INFO : worker thread finished; awaiting finish of 0 more threads
+2017-04-04 23:05:09,295 : INFO : training on 265640 raw words (132265 effective words) took 0.1s, 1141622 effective words/s
+2017-04-04 23:05:09,295 : WARNING : under 10 jobs per worker: consider setting a smaller `batch_words' for smoother alpha decay
+2017-04-04 23:05:09,295 : INFO : Epoch 4
+2017-04-04 23:05:09,295 : INFO : training model with 7 workers on 5644 vocabulary and 30 features, using sg=0 hs=0 sample=0.0001 negative=5 window=5
+2017-04-04 23:05:09,295 : INFO : expecting 591 sentences, matching count from corpus used for vocabulary survey
+2017-04-04 23:05:09,395 : INFO : worker thread finished; awaiting finish of 6 more threads
+2017-04-04 23:05:09,408 : INFO : worker thread finished; awaiting finish of 5 more threads
+2017-04-04 23:05:09,409 : INFO : worker thread finished; awaiting finish of 4 more threads
+2017-04-04 23:05:09,410 : INFO : worker thread finished; awaiting finish of 3 more threads
+2017-04-04 23:05:09,411 : INFO : worker thread finished; awaiting finish of 2 more threads
+2017-04-04 23:05:09,411 : INFO : worker thread finished; awaiting finish of 1 more threads
+2017-04-04 23:05:09,413 : INFO : worker thread finished; awaiting finish of 0 more threads
+2017-04-04 23:05:09,413 : INFO : training on 265640 raw words (132128 effective words) took 0.1s, 1139771 effective words/s
+2017-04-04 23:05:09,413 : WARNING : under 10 jobs per worker: consider setting a smaller `batch_words' for smoother alpha decay
+2017-04-04 23:05:09,413 : INFO : Epoch 5
+2017-04-04 23:05:09,413 : INFO : training model with 7 workers on 5644 vocabulary and 30 features, using sg=0 hs=0 sample=0.0001 negative=5 window=5
+2017-04-04 23:05:09,413 : INFO : expecting 591 sentences, matching count from corpus used for vocabulary survey
+2017-04-04 23:05:09,508 : INFO : worker thread finished; awaiting finish of 6 more threads
+2017-04-04 23:05:09,528 : INFO : worker thread finished; awaiting finish of 5 more threads
+2017-04-04 23:05:09,529 : INFO : worker thread finished; awaiting finish of 4 more threads
+2017-04-04 23:05:09,530 : INFO : worker thread finished; awaiting finish of 3 more threads
+2017-04-04 23:05:09,531 : INFO : worker thread finished; awaiting finish of 2 more threads
+2017-04-04 23:05:09,531 : INFO : worker thread finished; awaiting finish of 1 more threads
+2017-04-04 23:05:09,531 : INFO : worker thread finished; awaiting finish of 0 more threads
+2017-04-04 23:05:09,531 : INFO : training on 265640 raw words (132145 effective words) took 0.1s, 1133991 effective words/s
+2017-04-04 23:05:09,531 : WARNING : under 10 jobs per worker: consider setting a smaller `batch_words' for smoother alpha decay
+2017-04-04 23:05:09,531 : INFO : Epoch 6
+2017-04-04 23:05:09,531 : INFO : training model with 7 workers on 5644 vocabulary and 30 features, using sg=0 hs=0 sample=0.0001 negative=5 window=5
+2017-04-04 23:05:09,532 : INFO : expecting 591 sentences, matching count from corpus used for vocabulary survey
+2017-04-04 23:05:09,628 : INFO : worker thread finished; awaiting finish of 6 more threads
+2017-04-04 23:05:09,642 : INFO : worker thread finished; awaiting finish of 5 more threads
+2017-04-04 23:05:09,645 : INFO : worker thread finished; awaiting finish of 4 more threads
+2017-04-04 23:05:09,648 : INFO : worker thread finished; awaiting finish of 3 more threads
+2017-04-04 23:05:09,648 : INFO : worker thread finished; awaiting finish of 2 more threads
+2017-04-04 23:05:09,648 : INFO : worker thread finished; awaiting finish of 1 more threads
+2017-04-04 23:05:09,648 : INFO : worker thread finished; awaiting finish of 0 more threads
+2017-04-04 23:05:09,648 : INFO : training on 265640 raw words (132378 effective words) took 0.1s, 1147910 effective words/s
+2017-04-04 23:05:09,648 : WARNING : under 10 jobs per worker: consider setting a smaller `batch_words' for smoother alpha decay
+2017-04-04 23:05:09,648 : INFO : Epoch 7
+2017-04-04 23:05:09,649 : INFO : training model with 7 workers on 5644 vocabulary and 30 features, using sg=0 hs=0 sample=0.0001 negative=5 window=5
+2017-04-04 23:05:09,649 : INFO : expecting 591 sentences, matching count from corpus used for vocabulary survey
+2017-04-04 23:05:09,752 : INFO : worker thread finished; awaiting finish of 6 more threads
+2017-04-04 23:05:09,765 : INFO : worker thread finished; awaiting finish of 5 more threads
+2017-04-04 23:05:09,765 : INFO : worker thread finished; awaiting finish of 4 more threads
+2017-04-04 23:05:09,766 : INFO : worker thread finished; awaiting finish of 3 more threads
+2017-04-04 23:05:09,767 : INFO : worker thread finished; awaiting finish of 2 more threads
+2017-04-04 23:05:09,767 : INFO : worker thread finished; awaiting finish of 1 more threads
+2017-04-04 23:05:09,767 : INFO : worker thread finished; awaiting finish of 0 more threads
+2017-04-04 23:05:09,767 : INFO : training on 265640 raw words (132070 effective words) took 0.1s, 1128591 effective words/s
+2017-04-04 23:05:09,768 : WARNING : under 10 jobs per worker: consider setting a smaller `batch_words' for smoother alpha decay
+2017-04-04 23:05:09,768 : INFO : Epoch 8
+2017-04-04 23:05:09,768 : INFO : training model with 7 workers on 5644 vocabulary and 30 features, using sg=0 hs=0 sample=0.0001 negative=5 window=5
+2017-04-04 23:05:09,768 : INFO : expecting 591 sentences, matching count from corpus used for vocabulary survey
+2017-04-04 23:05:09,866 : INFO : worker thread finished; awaiting finish of 6 more threads
+2017-04-04 23:05:09,877 : INFO : worker thread finished; awaiting finish of 5 more threads
+2017-04-04 23:05:09,881 : INFO : worker thread finished; awaiting finish of 4 more threads
+2017-04-04 23:05:09,881 : INFO : worker thread finished; awaiting finish of 3 more threads
+2017-04-04 23:05:09,883 : INFO : worker thread finished; awaiting finish of 2 more threads
+2017-04-04 23:05:09,883 : INFO : worker thread finished; awaiting finish of 1 more threads
+2017-04-04 23:05:09,884 : INFO : worker thread finished; awaiting finish of 0 more threads
+2017-04-04 23:05:09,884 : INFO : training on 265640 raw words (132435 effective words) took 0.1s, 1155881 effective words/s
+2017-04-04 23:05:09,884 : WARNING : under 10 jobs per worker: consider setting a smaller `batch_words' for smoother alpha decay
+2017-04-04 23:05:09,884 : INFO : Epoch 9
+2017-04-04 23:05:09,884 : INFO : training model with 7 workers on 5644 vocabulary and 30 features, using sg=0 hs=0 sample=0.0001 negative=5 window=5
+2017-04-04 23:05:09,884 : INFO : expecting 591 sentences, matching count from corpus used for vocabulary survey
+2017-04-04 23:05:09,980 : INFO : worker thread finished; awaiting finish of 6 more threads
+2017-04-04 23:05:09,996 : INFO : worker thread finished; awaiting finish of 5 more threads
+2017-04-04 23:05:09,996 : INFO : worker thread finished; awaiting finish of 4 more threads
+2017-04-04 23:05:09,996 : INFO : worker thread finished; awaiting finish of 3 more threads
+2017-04-04 23:05:09,998 : INFO : worker thread finished; awaiting finish of 2 more threads
+2017-04-04 23:05:09,999 : INFO : worker thread finished; awaiting finish of 1 more threads
+2017-04-04 23:05:10,000 : INFO : worker thread finished; awaiting finish of 0 more threads
+2017-04-04 23:05:10,000 : INFO : training on 265640 raw words (132142 effective words) took 0.1s, 1154441 effective words/s
+2017-04-04 23:05:10,000 : WARNING : under 10 jobs per worker: consider setting a smaller `batch_words' for smoother alpha decay
+2017-04-04 23:05:10,000 : INFO : Sentiment
+2017-04-04 23:05:10,001 : INFO : Fitting
+Got result 0.414894
+
+Job file reloaded.
+Completed successfully in 1.70 seconds. [0.414894]
+setting job 0 complete
+set...

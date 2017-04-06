@@ -1,0 +1,11 @@
+As it turned out, one of the very best application areas for machine learning
+for many years was computer vision, though it still required a great deal of
+hand-coding to get the job done. People would go in and write hand-coded classifiers
+like edge detection filters so the program could identify where an object started and stopped;
+shape detection to determine if it had eight sides; a classifier to recognize the letters "S-T-O-P."
+From all those hand-coded classifiers they would develop algorithms to make sense of the image
+and "learn" to determine whether it was a stop sign.
+
+Good, but not mind-bendingly great. Especially on a foggy day when the sign isn't perfectly
+visible, or a tree obscures part of it. There's a reason computer vision and image detection
+didn't come close to rivaling humans until very recently, it was too brittle and too prone to error.

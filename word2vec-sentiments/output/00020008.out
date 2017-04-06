@@ -1,0 +1,46 @@
+Running in wrapper mode for '20008'
+
+Running python job.
+
+2017-04-05 13:18:47,021 : INFO : running /mnt/c/Source/spearmint/spearmint/bin/../spearmint/main.py ../examples/word2vec-sentiments/config.pb --driver=local --method=GPEIOptChooser --method-args=noiseless=0
+2017-04-05 13:18:47,022 : WARNING : consider setting layer size to a multiple of 4 for greater performance
+2017-04-05 13:18:47,031 : INFO : collecting all words and their counts
+2017-04-05 13:18:47,031 : INFO : PROGRESS: at example #0, processed 0 words (0/s), 0 word types, 0 tags
+2017-04-05 13:18:47,039 : INFO : collected 5644 word types and 591 unique tags from a corpus of 591 examples and 53128 words
+2017-04-05 13:18:47,039 : INFO : Loading a fresh vocabulary
+2017-04-05 13:18:47,051 : INFO : min_count=1 retains 5644 unique words (100% of original 5644, drops 0)
+2017-04-05 13:18:47,052 : INFO : min_count=1 leaves 53128 word corpus (100% of original 53128, drops 0)
+2017-04-05 13:18:47,068 : INFO : deleting the raw counts dictionary of 5644 items
+2017-04-05 13:18:47,068 : INFO : sample=0.0001 downsamples 528 most-common words
+2017-04-05 13:18:47,068 : INFO : downsampling leaves estimated 25852 word corpus (48.7% of prior 53128)
+2017-04-05 13:18:47,069 : INFO : estimated required memory for 5644 words and 30 dimensions: 4365680 bytes
+2017-04-05 13:18:47,076 : INFO : resetting layer weights
+2017-04-05 13:18:47,126 : INFO : Epoch 0
+2017-04-05 13:18:47,126 : INFO : training model with 7 workers on 5644 vocabulary and 30 features, using sg=0 hs=0 sample=0.0001 negative=5 window=5
+2017-04-05 13:18:47,126 : INFO : expecting 591 sentences, matching count from corpus used for vocabulary survey
+----------------------------------------
+Problem running the job:
+(<type 'exceptions.SystemExit'>, SystemExit(0,), <traceback object at 0x7f8b406142d8>)
+Traceback (most recent call last):
+  File "/mnt/c/Source/spearmint/spearmint/spearmint/runner.py", line 41, in job_runner
+    elif job.language == PYTHON: run_python_job(job)
+  File "/mnt/c/Source/spearmint/spearmint/spearmint/runner.py", line 131, in run_python_job
+    result = module.main(job.id, params)
+  File "/mnt/c/Source/spearmint/spearmint/examples/word2vec-sentiments/doc2vec.py", line 118, in main
+    return doc_convert(SIZE,MIN_COUNT,WINDOW,NEGATIVE_WORDS,EPOCH_SIZE)
+  File "/mnt/c/Source/spearmint/spearmint/examples/word2vec-sentiments/doc2vec.py", line 71, in doc_convert
+    model.train(sentences.sentences_perm())
+  File "/usr/local/lib/python2.7/dist-packages/gensim-1.0.1-py2.7-linux-x86_64.egg/gensim/models/word2vec.py", line 905, in train
+    report = progress_queue.get()  # blocks if workers too slow
+  File "/usr/lib/python2.7/Queue.py", line 168, in get
+    self.not_empty.wait()
+  File "/usr/lib/python2.7/threading.py", line 339, in wait
+    waiter.acquire()
+  File "/mnt/c/Source/spearmint/spearmint/bin/../spearmint/main.py", line 323, in sigint_handler
+    sys.exit(0)
+SystemExit: 0
+None
+----------------------------------------
+Job file reloaded.
+Could not find value in output file.
+Job failed in 0.73 seconds.
