@@ -15,7 +15,7 @@ logic_descriptions = set()
 search = ['Binary Search', 'Breadth-first Search', 'Depth-first Search', 'Greedy', 'Minimax', 'Sort', 'Topological Sort']
 search_descriptions = set()
 
-symbols = '!@#$%^&*()[].,1234567890/\}{|";:<>`~'
+symbols = '!@#$%^&*()[].,1234567890/\}{|";:<>`~+=-_'
 
 with open('questions.json') as json_data:
 	data = json.load(json_data)
@@ -31,10 +31,12 @@ with open('questions.json') as json_data:
 
 	#
 	for item in data:
-		stripped_description = item['description'].strip().replace('\n', ' ').replace('\r',' ').replace('\t', ' ')
+		stripped_description = item['description'].strip().replace('\n', ' ').replace('\r',' ').replace('\t', ' ').lower()
+
+
+		#Removes all symbols
 		for char in symbols:
-			print(char)
-			stripped_descirption = stripped_description.replace(char, ' ')
+			stripped_description = stripped_description.replace(char, ' ')
 		stripped_description = stripped_description.replace('      ', ' ').replace('    ', ' ').replace('   ', ' ').replace('  ', ' ').strip()
 		#print(stripped_description)
 		if 'Credits' in stripped_description:
