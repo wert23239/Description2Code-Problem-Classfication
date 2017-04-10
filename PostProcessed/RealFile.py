@@ -27,7 +27,7 @@ from random import shuffle
 import logging
 import os.path
 import sys
-#import cPickle as pickle
+import cPickle as pickle
 
 program = os.path.basename(sys.argv[0])
 logger = logging.getLogger(program)
@@ -102,43 +102,53 @@ model.save('./problems.d2v')
 model = Doc2Vec.load('./problems.d2v')
 
 
-# In[20]:
+# In[7]:
 
-model.most_similar('math')
+model.most_similar('binary')
 
 
 # In[8]:
 
-logger.info('Sentiment')
-train_arrays = numpy.zeros((381, SIZE))
-train_labels = numpy.zeros(381)
-
-for i in range(208):
-    prefix_train_pos = 'TRAIN_POS_' + str(i)
-    train_arrays[i] = model.docvecs[prefix_train_pos]
-    train_labels[i] = 1
-for i in range(173):
-    prefix_train_neg = 'TRAIN_NEG_' + str(i)
-    train_arrays[208 + i] = model.docvecs[prefix_train_neg]
-    train_labels[208 + i] = 0
+model.docvecs['TRAIN_POS_0']
 
 
 # In[9]:
 
-test_arrays = numpy.zeros((94, SIZE))
-test_labels = numpy.zeros(94)
-
-for i in range(54):
-    prefix_test_pos = 'TEST_POS_' + str(i)
-    test_arrays[i] = model.docvecs[prefix_test_pos]
-    test_labels[i] = 1
-for i in range(40):
-    prefix_test_neg = 'TEST_NEG_' + str(i)
-    test_arrays[54 + i] = model.docvecs[prefix_test_neg]
-    test_labels[54 + i] = 0
+model.docvecs['TEST_POS_0']
 
 
 # In[10]:
+
+logger.info('Sentiment')
+train_arrays = numpy.zeros((210+154, SIZE))
+train_labels = numpy.zeros(210+154)
+
+for i in range(210):
+    prefix_train_pos = 'TRAIN_POS_' + str(i)
+    train_arrays[i] = model.docvecs[prefix_train_pos]
+    train_labels[i] = 1
+for i in range(154):
+    prefix_train_neg = 'TRAIN_NEG_' + str(i)
+    train_arrays[210 + i] = model.docvecs[prefix_train_neg]
+    train_labels[210 + i] = 0
+
+
+# In[11]:
+
+test_arrays = numpy.zeros((52+38, SIZE))
+test_labels = numpy.zeros(52+38)
+
+for i in range(52):
+    prefix_test_pos = 'TEST_POS_' + str(i)
+    test_arrays[i] = model.docvecs[prefix_test_pos]
+    test_labels[i] = 1
+for i in range(38):
+    prefix_test_neg = 'TEST_NEG_' + str(i)
+    test_arrays[52 + i] = model.docvecs[prefix_test_neg]
+    test_labels[52 + i] = 0
+
+
+# In[12]:
 
 from sklearn.linear_model import LogisticRegression
 
@@ -152,11 +162,11 @@ LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
 print classifier.score(test_arrays, test_labels)
 
 
-# In[26]:
+# In[15]:
 
 from sklearn import svm
 classifier = svm.SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
-    decision_function_shape=None, degree=3, gamma='auto', kernel='linear',
+    decision_function_shape=None, degree=3, gamma='auto', kernel='rbf',
     max_iter=-1, probability=False, random_state=None, shrinking=True,
     tol=0.001, verbose=False)
 classifier.fit(train_arrays, train_labels)
@@ -165,7 +175,7 @@ print(len(test_arrays))
 print classifier.score(test_arrays,test_labels)
 
 
-# In[12]:
+# In[14]:
 
 svm.SVR()
 

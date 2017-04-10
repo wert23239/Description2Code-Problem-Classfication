@@ -36,29 +36,29 @@ def GatherWordCount(textfile, wordDict, wordCount):
             wordCount += 1
             wordDict[i] += 1
             if wordDict[i] == 1: #Lapace-Smoothing
-                wordDict[i] += .01 #add K
+                wordDict[i] += .00001 #add K
     f.close()
     return wordCount
 
 def TestData(line, PostiveTable, PostiveCount, NegativeTable, NegativeCount):
-    positive_class = 0.5
-    negative_class = 0.5
+    positive_class = 0
+    negative_class = 0
     words = line.split()
     for i in words: #go through all words and add to hashtable of current word
-        positive_class += calculate_probabilty(PostiveTable, i, PostiveCount)
-        negative_class += calculate_probabilty(NegativeTable, i, NegativeCount)
+        positive_class += math.log(calculate_probabilty(PostiveTable, i, PostiveCount))
+        negative_class += math.log(calculate_probabilty(NegativeTable, i, NegativeCount))
     #positive_class+= math.log(float(PostiveCount)/(float(PostiveCount)+float(NegativeCount)))
     #negative_class+= math.log(float(NegativeCount)/(float(PostiveCount)+float(NegativeCount)))
-    total=np.exp(positive_class)+np.exp(negative_class)
-    pos_percent = np.exp(positive_class)/total
-    neg_percent= np.exp(negative_class)/total
+    # total=np.exp(positive_class)+np.exp(negative_class)
+    # pos_percent = np.exp(positive_class)/total
+    # neg_percent= np.exp(negative_class)/total
    #return [positive_class,negative_class]
-    return [pos_percent,neg_percent]
+    return [positive_class, negative_class]
 
 def calculate_probabilty(wordTable, Word, TableCount):
     classifier = 0
     if wordTable[Word] == 0:
-        classifier = (.01+1)/(TableCount+len(wordTable))
+        classifier = (.00001+1)/(TableCount+len(wordTable))
     else:
         classifier = (wordTable[Word]+1)/(TableCount+len(wordTable))
     return classifier
@@ -113,19 +113,31 @@ WORD_DICT_NEGATIVE, NegativeCount = gather_data(PATHNEG)
 #print(NegativeCount)
 export_dict(POSITIVECOUNT, WORD_DICT_POSITIVE, "Postive.txt")
 export_dict(NegativeCount, WORD_DICT_NEGATIVE, "Negative.txt")
-results=[]
+resultspos=[]
+resultsneg=[]
 testpos = "test-pos.txt"
 f = open(testpos, 'r')
 for line in f:
-    results.append(TestData(line, WORD_DICT_POSITIVE, POSITIVECOUNT,WORD_DICT_NEGATIVE,NegativeCount))
+    resultspos.append(TestData(line, WORD_DICT_POSITIVE, POSITIVECOUNT,WORD_DICT_NEGATIVE,NegativeCount)) 
 f.close()
 testneg = "test-neg.txt"
-f = open(testpos, 'r')
+f = open(testneg, 'r')
 for line in f:
-    results.append(TestData(line, WORD_DICT_POSITIVE, POSITIVECOUNT,WORD_DICT_NEGATIVE,NegativeCount))
+    resultsneg.append(TestData(line, WORD_DICT_POSITIVE, POSITIVECOUNT,WORD_DICT_NEGATIVE,NegativeCount))
 f.close()
-print(results)
+poscount=0
+negcount=0
+poscorrect=0
+negcorrect=0
+for res in resultspos:
+    poscount+=1
+    if res[0]>res[1]:
+        poscorrect+=1   
+for res in resultsneg:
+    negcount+=1
+    if res[1]>res[0]:
+        negcorrect+=1
 
-
-
-
+print("The postive accuracy is "+str(poscorrect/float(poscount)))
+print("The negative accuracy is "+str(negcorrect/float(negcount)))
+print("The accuracy is "+str((poscorrect+negcorrect)/float(poscount+negcount)))
