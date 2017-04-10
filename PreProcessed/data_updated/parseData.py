@@ -16,7 +16,7 @@ logic_descriptions = set()
 search = ['Binary Search', 'Breadth-first Search', 'Depth-first Search', 'Greedy', 'Minimax', 'Sort', 'Topological Sort']
 search_descriptions = set()
 
-symbols = '!@#$%^&*()[].,1234567890/\}{|";:<>`~+=-_'
+symbols = '!@#$%^&*()[].,1234567890/\}{|";:<>`~+=?-_'
 
 with open('questions.json') as json_data:
 	data = json.load(json_data)
