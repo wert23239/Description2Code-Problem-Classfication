@@ -9,7 +9,7 @@ Jupyter Notebook
 Numpy
 
 ## The data as well as the code is stored in 
-Description2Code-Problem-Classfication/PreProcessed/PreProcessed 4-18/
+PreProcessed/PreProcessed 4-18/
 
 ## To run the code 
 RealFile.Ipynb
