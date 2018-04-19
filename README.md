@@ -13,7 +13,7 @@ Jupyter Notebook
 Numpy
 
 ## The data as well as the code is stored in 
-PreProcessed/PreProcessed 4-18/
+Main Directory
 
 ## To run the code 
 RealFile.Ipynb
